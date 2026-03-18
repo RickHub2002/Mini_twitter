@@ -1,39 +1,71 @@
 @import "tailwindcss";
 
+/* 1. Importa a fonte do Figma */
+/*@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap'); */
 
-:root {
-  /*Tela de login e cadastro */
-  --bg-fundo: #fafafa;
-  --color-titulo: #0D93F2;
-  --color-secundarias: #62748E;
-  --color-marca: #02274F;
+@layer base {
+  :root {
+    /* Cores de Fundo */
+    --bg-app: #fafafa;
+    --bg-card: #ffffff;
+    
+    /* Cores de Texto */
+    --text-title: #0D93F2;
+    --text-primary: #02274F;
+    --text-secondary: #62748E;
+    
+    /* Cores de UI (Timeline, etc) */
+    --color-post: #314158;
+    --color-like: #EB5757;
+    --color-brand-ui: #0D93F2;
 
-  /*Tela de linha do tempo */
-  --color-post-principais: #314158;
-  --bg-icone-like: #EB5757;
-  --bg-icones: #0D93F2;
-  --bg-footer: #FAFAFA;
-  --bg-footer-nome: #0D93F2;
-}
+    /* Cores do input */
+    --bg-input: #FFFFFF;
+    --bg-input-border: #E2E8F0;
+    
+    /* Footer */
+    --bg-footer-color: #FAFAFA;
+    --text-footer-name: #0D93F2;
+  }
 
-.dark {
-  /*Tela de login e cadastro */
-  --bg-fundo-grad1: #0F172B;
-  --bg-fundo-grad2: #070B14;
-  --color-principal: #FFFFFF;
-  --color-titulo: #FAFAFA;
-  --color-desc-titulo: #90A1B9;
-  --color-secundarias: #62748E;
-  --color-marca: #94A3B8;
+  .dark {
+    /* O NOME É O MESMO, O VALOR É QUE MUDA */
+    --bg-app: linear-gradient(to bottom, #0F172B, #070B14);
+    --bg-card: #0F172B;
+    
+    --text-title: #FAFAFA;
+    --text-primary: #FFFFFF;
+    --text-secondary: #90A1B9; /* Usei o desc-titulo que vc mandou */
+    
+    --color-post: #FFFFFF;
+    --color-like: #EB5757;
+    --color-brand-ui: #94A3B8; /* Mapeado da color-marca do seu dark */
+    
+    /* Cores do input */
+    --bg-input: #1D293D;
+    --bg-input-border: #62748E;
 
-  /*Tela de linha do tempo */
-  --color-post-principais: #FFFFFF;
-  --color-post-mensagem: #CBD5E1;
-  --bg-icone-like: #EB5757;
-  --bg-footer: #0F172B;
-  --bg-footer-nome: #FFFFFF;
+    --bg-footer-color: #0F172B;
+    --text-footer-name: #FFFFFF;
+  }
 }
 
 @theme {
-  --font-sans: 'Manrope', sans-serif
+  /* Mapeando tudo para o Tailwind v4 */
+  --font-sans: 'Manrope', sans-serif;
+
+  /* Agora você usa essas classes no seu HTML */
+  --color-fundo: var(--bg-app);
+  --color-card: var(--bg-card);
+  --color-titulo: var(--text-title);
+  --color-principal: var(--text-primary);
+  --color-secundaria: var(--text-secondary);
+  --color-post: var(--color-post);
+  --color-like: var(--color-like);
+  --color-brand: var(--color-brand-ui);
+  --color-input: var(--bg-input);
+  --color-input-border: var(--bg-input-border);
+  --color-footer-bg: var(--bg-footer-color);
+  --color-footer-name: var(--text-footer-name);
+  --shadow-glow: 0px 4px 6px -4px rgba(13, 147, 242, 0.2);
 }

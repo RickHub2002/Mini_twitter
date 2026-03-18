@@ -1,24 +1,28 @@
 //import { LucideIcon } from 'lucide-react'
+import type { FunctionComponent, SVGProps } from 'react'
+
+type ReactSVGComponent = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
 
 interface InputProps {
     label: string;
     type: string;
     placeholder: string;
-    icon: any;
+    className: string;
+    icon: ReactSVGComponent;
 }
 
-function Input({ label, type, placeholder, icon: Icon }: InputProps) {
+function Input({ label, type, placeholder, className, icon: Icon }: InputProps) {
     return (
-        <div className="flex flex-col w-full">
-            <label>{label}</label>
+        <div className="flex flex-col w-full gap-2 mb-[20px]">
+            <label className="text-secundaria text-sm font-base">{label}</label>
             <div className="relative flex items-center">
-                <div className="absolute left-3 text-pink-300">
-                    <Icon size={20} />
+                <div className="absolute right-3 text-pink-300">
+                    <Icon className="w-5 h-5 hover:border-1" />
                 </div>
                 <input
                     type={type}
                     placeholder={placeholder}
-                    className="w-full pl-10 pr-4 py-3 bg-gray-700"
+                    className={className}
                 >
                 </input>
             </div>
